@@ -1,9 +1,6 @@
 name: macOS
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  workflow_dispatch:
   schedule:
     - cron: "0 7 * * *"
 
@@ -21,7 +18,7 @@ jobs:
     - name: Setup Zig
       uses: goto-bus-stop/setup-zig@v1.2.5
       with:
-        version: 0.7.0
+        version: master
 
     - run: echo "$(pwd)/zig-cache/bin" >> $GITHUB_PATH
 
